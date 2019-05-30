@@ -1,0 +1,16 @@
+{
+  "Pair1": {
+    "id": "01",
+    "userId": "01",
+    "MovieId": "Wedding Crashers",
+    "isWatched": true,
+    "starRating": 5
+  },
+  "Pair2": {
+    "id": "02",
+    "userId": "02",
+    "MovieId": "Scott Pilgrim vs. The World",
+    "isWatched": true,
+    "starRating": 5
+  }
+}

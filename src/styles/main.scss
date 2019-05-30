@@ -1,7 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+@import "../javascripts/components/movies/movies.scss";
 
 body {
-  background-color: blue;
+  background-color: navajowhite;
+  color: black;
 }
 
 .hide {

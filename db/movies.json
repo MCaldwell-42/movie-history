@@ -1,0 +1,20 @@
+{
+  "Wedding Crashers": {
+    "id": "Wedding Crashers",
+    "name": "Wedding Crashers",
+    "genre": "Comedy",
+    "movieRating": "R",
+    "director": "David Dobkin",
+    "imageUrl": "http://www.gstatic.com/tv/thumb/v22vodart/36138/p36138_v_v8_ah.jpg",
+    "description": "Two man-children crash weddings and end up crashing into love!"
+  },
+  "Scott Pilgrim vs The World": {
+    "id": "Scott Pilgrim vs The World",
+    "name": "Scott Pilgrim vs The World",
+    "genre": "Fantasy/Action",
+    "movieRating": "PG-13",
+    "director": "Edgar Wright",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/14/Scott_Pilgrim_vs._the_World_teaser.jpg",
+    "description": "A boy in a super-powered town has to fight the league of evil ex's for his girl!"
+  }
+}
