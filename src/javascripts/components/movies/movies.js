@@ -50,8 +50,7 @@ const movieStringBuilder = () => {
       // domString += `<h5>${movie.genre}</h5>`;
       domString += `<h5>${movie.movieRating}</h5>`;
       domString += ' <div class="custom-control custom-checkbox">';
-      domString += '<input type="checkbox" class="custom-control-input" id="defaultUnchecked">';
-      domString += '<label class="custom-control-label" for="defaultUnchecked">Add To Watchlist</label>';
+      domString += `<button type="submit" id="${movie.id}" class="btn btn-warning watchlistBtn">Add To Watchlist</button>`;
       domString += '</div>';
       domString += '</div>';
     });
