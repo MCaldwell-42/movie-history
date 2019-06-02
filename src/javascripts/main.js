@@ -13,7 +13,7 @@ const init = () => {
   authData.checkLoginStatus();
   auth.authStringBuilder();
   movies.movieStringBuilder();
-  movies.addMovieEvents();
+  movies.addMovieEvent();
 };
 
 init();
