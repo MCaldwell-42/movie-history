@@ -35,6 +35,12 @@ const newMovieButton = (e) => {
   document.getElementById('saveNewMovie').addEventListener('click', createNewMovie);
 };
 
+const cancelNewMovie = (e) => {
+  e.preventDefault();
+  document.getElementById('addNewMovie').classList.remove('hide');
+  document.getElementById('movieForm').classList.add('hide');
+};
+
 const movieStringBuilder = () => {
   movieData.getMovies().then((movieResp) => {
     console.error(movieResp);
@@ -43,11 +49,8 @@ const movieStringBuilder = () => {
     domString += '<div class="row">';
     movieResp.forEach((movie) => {
       domString += '<div class="card">';
-      // domString += `<h1 class="cardTitle">${movie.name}</h1>`;
       domString += `<img class="moviePic" src=${movie.imageUrl} alt="movie image" />`;
       domString += `<h6> Directed by: ${movie.director}</h6>`;
-      // domString += `<h3>${movie.description}</h3>`;
-      // domString += `<h5>${movie.genre}</h5>`;
       domString += `<h5>${movie.movieRating}</h5>`;
       domString += ' <div class="custom-control custom-checkbox">';
       domString += `<button type="submit" id="${movie.id}" class="btn btn-warning watchlistBtn">Add To Watchlist</button>`;
@@ -60,7 +63,9 @@ const movieStringBuilder = () => {
   }).catch(err => console.error('could not get movies', err));
 };
 
-const addMovieEvent = () => document.getElementById('addNewMovie').addEventListener('click', newMovieButton);
+const MovieEvents = () => {
+  document.getElementById('addNewMovie').addEventListener('click', newMovieButton);
+  document.getElementById('cancelNewMovie').addEventListener('click', cancelNewMovie);
+};
 
-
-export default { movieStringBuilder, addMovieEvent };
+export default { movieStringBuilder, MovieEvents };
