@@ -1,7 +1,10 @@
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import $ from 'jquery';
 import util from '../../helpers/util';
 import movieData from '../../helpers/data/moviesData';
+import watchlistData from '../../helpers/data/watchlistData';
+import watchlist from '../watchList/watchlist';
 
 const createNewMovie = (e) => {
   e.preventDefault();
@@ -28,6 +31,20 @@ const createNewMovie = (e) => {
     .catch(err => console.error('no new movie for you', err));
 };
 
+// const addToWatched = (event) => {
+//   const { uid } = firebase.auth().currentUser;
+//   const usermovieId = event.target.id;
+//   const userMovie = {
+//     movieId: usermovieId,
+//     uid,
+//     isWatched: true,
+//     rating: null,
+//   };
+//   watchlistData.addToWatchlist(userMovie)
+//     .then(() => watchlist.makeUniqueMovieList(uid) // eslint-disable-line no-use-before-define
+//       .catch(error => console.error(error)));
+// };
+// above code is missing some stuff and pieced together
 const newMovieButton = (e) => {
   e.preventDefault();
   document.getElementById('addNewMovie').classList.add('hide');
@@ -60,6 +77,7 @@ const movieStringBuilder = () => {
     domString += '</div>';
     domString += '</div>';
     util.printToDom('movies', domString);
+    $('.watchlistBtn').click(addToWatched);
   }).catch(err => console.error('could not get movies', err));
 };
 

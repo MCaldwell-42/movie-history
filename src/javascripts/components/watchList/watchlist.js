@@ -15,6 +15,7 @@ const printWatchlist = (flicks) => {
     domString += `<h5>${flick.movieRating}</h5>`;
     domString += ' <div class="custom-control custom-checkbox">';
     domString += '</div>';
+    domString += `<button class="btn btn-danger deleteBtn" id="delete.${flick.id}">delete</button>`;
     domString += '</div>';
   });
   domString += '</div>';
