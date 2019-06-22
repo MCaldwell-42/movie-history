@@ -9,13 +9,13 @@ const userMovies = (watchlistMovies, movies) => watchlistMovies.map((watchlistMo
   return w;
 });
 
-const uniqueMovieView = (movies, watchlistMovies) => movies.map((movie) => {
-  const a = movie;
-  const syncedMovie = watchlistMovies.find(w => w.movieId === a.id);
+const uniqueMovieView = (movies, watchlistMovies) => watchlistMovies.map((userMovie) => {
+  const a = userMovie;
+  const syncedMovie = movies.find(movie => movie.id === a.movieId);
   if (syncedMovie) {
-    a.rating = syncedMovie.rating;
-    a.onWatchlist = syncedMovie.onWatchlist;
-    a.isWatched = syncedMovie.isWatched;
+    a.imageUrl = syncedMovie.imageUrl;
+    a.onWatchlist = true;
+    a.isWatched = false;
     a.watchlistId = syncedMovie.id;
   }
   return a;

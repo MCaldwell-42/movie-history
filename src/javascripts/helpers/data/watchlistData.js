@@ -15,8 +15,6 @@ const getWatchlistByUid = uid => new Promise((resolve, reject) => {
         watchlist.push(watchlistResults[watchlistId]);
       });
       resolve(watchlist);
-      console.error(watchlist);
-      console.error(uid);
     })
     .catch(err => reject(err));
 });

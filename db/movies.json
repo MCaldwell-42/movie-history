@@ -1,6 +1,5 @@
 {
-  "Wedding Crashers": {
-    "id": "Wedding Crashers",
+  "movie1": {
     "name": "Wedding Crashers",
     "genre": "Comedy",
     "movieRating": "R",
@@ -8,8 +7,7 @@
     "imageUrl": "http://www.gstatic.com/tv/thumb/v22vodart/36138/p36138_v_v8_ah.jpg",
     "description": "Two man-children crash weddings and end up crashing into love!"
   },
-  "Scott Pilgrim vs The World": {
-    "id": "Scott Pilgrim vs The World",
+  "movie2": {
     "name": "Scott Pilgrim vs The World",
     "genre": "Fantasy/Action",
     "movieRating": "PG-13",

@@ -31,20 +31,22 @@ const createNewMovie = (e) => {
     .catch(err => console.error('no new movie for you', err));
 };
 
-// const addToWatched = (event) => {
-//   const { uid } = firebase.auth().currentUser;
-//   const usermovieId = event.target.id;
-//   const userMovie = {
-//     movieId: usermovieId,
-//     uid,
-//     isWatched: true,
-//     rating: null,
-//   };
-//   watchlistData.addToWatchlist(userMovie)
-//     .then(() => watchlist.makeUniqueMovieList(uid) // eslint-disable-line no-use-before-define
-//       .catch(error => console.error(error)));
-// };
-// above code is missing some stuff and pieced together
+const addToWatched = (event) => {
+  const { uid } = firebase.auth().currentUser;
+  const movieId = event.target.id;
+  const userMovie = {
+    movieId,
+    uid,
+    isWatched: true,
+    rating: 0,
+    onWatchlist: true,
+  };
+  watchlistData.addToWatchlist(userMovie)
+    .then(() => watchlist.makeUniqueMovieList(uid) // eslint-disable-line no-use-before-define
+      .catch(error => console.error(error)));
+};
+// above code is working but the rating default may not be great.
+
 const newMovieButton = (e) => {
   e.preventDefault();
   document.getElementById('addNewMovie').classList.add('hide');
@@ -60,7 +62,6 @@ const cancelNewMovie = (e) => {
 
 const movieStringBuilder = () => {
   movieData.getMovies().then((movieResp) => {
-    console.error(movieResp);
     let domString = '';
     domString += '<div class="container d-flex">';
     domString += '<div class="row">';
