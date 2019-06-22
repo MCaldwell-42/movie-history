@@ -23,9 +23,12 @@ const getWatchlistByUid = uid => new Promise((resolve, reject) => {
 
 const deleteWatchlist = movieId => axios.delete(`${firebaseUrl}/userMovie/${movieId}.json`);
 
+const editWatchlist = (movieId, ratedMovie) => axios.put(`${firebaseUrl}/userMovie/${movieId}.json`, ratedMovie);
+
 
 export default {
   addToWatchlist,
   getWatchlistByUid,
   deleteWatchlist,
+  editWatchlist,
 };
