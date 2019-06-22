@@ -41,11 +41,44 @@ const addToWatched = (event) => {
     rating: 0,
     onWatchlist: true,
   };
-  watchlistData.addToWatchlist(userMovie)
-    .then(() => watchlist.makeUniqueMovieList(uid) // eslint-disable-line no-use-before-define
-      .catch(error => console.error(error)));
+  watchlistData.getWatchlistByUid(uid)
+    .then((results) => {
+      console.error(results);
+      const watchlistArray = results;
+      const matchingWatchlist = watchlistArray.find(u => u.movieId === userMovie.movieId);
+      if (matchingWatchlist === undefined) {
+        watchlistData.addToWatchlist(userMovie)
+          .then(() => watchlist.makeUniqueMovieList(uid))// eslint-disable-line no-use-before-define
+          .catch(error => console.error(error));
+      }
+    })
+    .catch(error => console.error(error));
 };
-// above code is working but the rating default may not be great.
+
+
+const rateMovie = (event) => {
+  const { uid } = firebase.auth().currentUser;
+  const movieId = event.target.id;
+  const userMovie = {
+    movieId,
+    uid,
+    isWatched: true,
+    rating: 5,
+    onWatchlist: true,
+  };
+  watchlistData.getWatchlistByUid(uid)
+    .then((results) => {
+      console.error(results);
+      const watchlistArray = results;
+      const matchingWatchlist = watchlistArray.find(u => u.movieId === userMovie.movieId);
+      if (matchingWatchlist === undefined) {
+        watchlistData.addToWatchlist(userMovie)
+          .then(() => watchlist.makeUniqueMovieList(uid))// eslint-disable-line no-use-before-define
+          .catch(error => console.error(error));
+      }
+    })
+    .catch(error => console.error(error));
+};
 
 const newMovieButton = (e) => {
   e.preventDefault();
@@ -72,6 +105,7 @@ const movieStringBuilder = () => {
       domString += `<h5>${movie.movieRating}</h5>`;
       domString += ' <div class="custom-control custom-checkbox">';
       domString += `<button type="submit" id="${movie.id}" class="btn btn-warning watchlistBtn">Add To Watchlist</button>`;
+      domString += `<button type="submit" id="${movie.id}" class="btn btn-danger rateBtn">Rate Movie</button>`;
       domString += '</div>';
       domString += '</div>';
     });
@@ -79,6 +113,7 @@ const movieStringBuilder = () => {
     domString += '</div>';
     util.printToDom('movies', domString);
     $('.watchlistBtn').click(addToWatched);
+    $('.rateBtn').click(rateMovie);
   }).catch(err => console.error('could not get movies', err));
 };
 

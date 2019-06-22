@@ -3,7 +3,9 @@ import apiKeys from '../apiKeys.json';
 
 const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
+
 const addToWatchlist = watchObject => axios.post(`${firebaseUrl}/userMovie.json`, watchObject);
+
 
 const getWatchlistByUid = uid => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/userMovie.json?orderBy="uid"&equalTo="${uid}"`)
@@ -22,4 +24,8 @@ const getWatchlistByUid = uid => new Promise((resolve, reject) => {
 const deleteWatchlist = movieId => axios.delete(`${firebaseUrl}/userMovie/${movieId}.json`);
 
 
-export default { addToWatchlist, getWatchlistByUid, deleteWatchlist };
+export default {
+  addToWatchlist,
+  getWatchlistByUid,
+  deleteWatchlist,
+};
