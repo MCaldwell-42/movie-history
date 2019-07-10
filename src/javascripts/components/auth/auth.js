@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import util from '../../helpers/util';
-import googleImg from './signIn.png';
+// import googleImg from './signIn.png';
 
 
 const signMeIn = () => {
@@ -10,8 +10,8 @@ const signMeIn = () => {
 };
 
 const authStringBuilder = () => {
-  let domString = '<button id="google-auth" class="btn btn-info">';
-  domString += `<img src=${googleImg}/>`;
+  let domString = '<button id="google-auth" class="btn btn-danger">';
+  domString += '<h1>Log in</h1>';
   domString += '</button>';
   util.printToDom('auth', domString);
   document.getElementById('google-auth').addEventListener('click', signMeIn);
